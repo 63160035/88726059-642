@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/mystyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        words = ['money','nigga','abuse','adult','agent','basic','beach','Birth'
+        ,'cause','chain','china','cover','cream','depth','build','breed','chief'
+        ,'train','trust','truth','trend','water','while','white','union','trade'
+        ,'reply','power','knife','pound']
+        rndWord = words[Math.floor(Math.random()*words.length)];
+        document.write(rndWord)
+        numGuess =6;
+        num = 1;
+
+        function doGuess(){
+            numCorrect = 0;
+            hist = document.getElementById('hist');
+            elmGuessWord = document.getElementById('guestWord');
+            guestWord = elmGuessWord.value;
+            s="<div>";
+            for(i=0;i<guestWord.length;i++){
+                if(rndWord.indexOf(guestWord[i])<0){
+                    s+="<span class='red'>"+guestWord[i]+"</span>";
+                }
+                else if(guestWord[i]==rndWord[i]){
+                    s+="<span class='green'>"+guestWord[i]+"</span>";
+                    numCorrect++;
+                }else{
+                    s+="<span class='yellow'>"+guestWord[i]+"</span>";
+                }
+            }
+            s+='</div>';
+            hist.innerHTML += s;
+            num++;
+            elmGuessWord.select();
+            if(numCorrect==5)hist.innerHTML +="!!!WIN!!!";
+            if(num>6&&numCorrect!=5)hist.innerHTML +="!!!GAME OVER!!!"
+        }
+    </script>
+    <h4>Wordle</h4>
+    <input type="text" id="guestWord" maxlength="5">
+    <button onclick="doGuess()">Guess</button>
+    <div id="hist"></div>
+</body>
+</html>

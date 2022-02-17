@@ -1,0 +1,19 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+}
+span{
+    padding-left: 3px;
+    padding-right: 3px;
+}
+.red{
+    background-color: firebrick;
+    color: white;
+}
+.yellow{
+    background-color: yellow;
+    color: black;
+}
+.green{
+    background-color: green;
+    color: white;
+}
